@@ -111,13 +111,17 @@
 			<!--主时间线+事件牌-->
 			<!--a second=48 frames-->  
 			<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1600 900" preserveAspectRatio="xMinYMid slice" id="main-time-line">
+<<<<<<< HEAD
 				<text x="680" y="100" font-size="30" font-family="Verdana" fill="white"> Our Time Line</text>
 				<text x="600" y="120" font-size="10" font-family="Verdana" fill="white">（为了更好的效果，请只单击鼠标一下.PS：一下！不是双击！不是两下！就一下！)</text>
+=======
+>>>>>>> origin/master
 				<!--main time line-->
 				<path id="timeline" fill="none" data-duration="60" stroke="#FFFFFF" stroke-width="6" d="M 0,450 H 1600"/>
 				<!--event1 card-->
 				<path fill="none" data-duration="60" stroke="#FFFFFF" stroke-width="6" d="M 100,450 V375 h-75 v-75 h150 v75 h-75"/>
 				<!--event1 text-->
+<<<<<<< HEAD
 				<text id="0" x="50" y="330" fill="white" font-size="20" font-family="Verdana" opacity="0">
 					June 15th
 					<animate attributeName="opacity" from="0" to="1" begin="indefinite" dur="1s" fill="freeze"/>
@@ -125,10 +129,16 @@
 				<text id="1" x="40" y="360" fill="white" font-size="20" font-family="Verdana" opacity="0" width="20px" height="40px">
 					我们在一起了
 					<animate attributeName="opacity" from="0" to="1" begin="indefinite" dur="1s" fill="freeze"/>
+=======
+				<text id="event1-text" x="50" y="300" fill="white" font-size="20" font-family="Verdana" opacity="0">
+					This is test paragraph1
+					<animate id="text1"attributeName="opacity" from="0" to="1" begin="indefinite" dur="1.75s" fill="freeze"/>
+>>>>>>> origin/master
 				</text>
 				<!--event2 card-->
 				<path fill="none" data-duration="60" stroke="#FFFFFF" stroke-width="6" d="M 200,450 V525 h-75 v75 h150v-75 h-75"/>	
 				<!--event2 text-->
+<<<<<<< HEAD
 				<text id="2" x="160" y="555" fill="white" font-size="20" font-family="Verdana" opacity="0">
 					July 1st
 					<animate attributeName="opacity" from="0" to="1" begin="indefinite" dur="1s" fill="freeze"/>
@@ -229,11 +239,20 @@
 				</text>
 			</svg>		
 			<a href="#thirdpage" class="tothirdpage" id="tothirdpage" style="display:none">click this for one more gift </a>
+=======
+				<text id="event2-text" x="200" y="600" fill="white" font-size="20" font-family="Verdana" opacity="0">
+					This is test paragraph2
+					<animate attributeName="opacity" from="0" to="1" begin="indefinite" dur="3s" fill="freeze"/>
+				</text>
+			</svg>		
+			<a href="#thirdpage" class="tothirdpage" id="tothirdpage" style="display:none">More about us</a>
+>>>>>>> origin/master
 		</div>
 		<!-- set up on click event-->
 		<script>
   			var animate = document.getElementsByTagName("animate")[0];
   			var animate1 = document.getElementsByTagName("animate")[1];
+<<<<<<< HEAD
   			var animate2 = document.getElementsByTagName("animate")[2];
   			var animate3 = document.getElementsByTagName("animate")[3];
   			var animate4 = document.getElementsByTagName("animate")[4];
@@ -283,12 +302,26 @@
        			setTimeout("animate19.beginElement()",17250);
        			hi.reset().play();
        			setTimeout(function() { funcA(); },20250);
+=======
+			if (animate) {
+    			document.getElementById("main-time-line").onclick = function() {
+       			animate.beginElement();
+       			animate1.beginElement();
+       			hi.reset().play();
+       			$(document).ready(function(){
+    			$("#tothirdpage ").fadeIn(15000);
+  					});
+>>>>>>> origin/master
     			};
 			}
   		</script>
 	</div>
 	<script>
+<<<<<<< HEAD
 		var hi = new Vivus('main-time-line', {type: 'scenario-sync', duration: 480, start: 'manual', forceRender: false, dashGap: 20});
+=======
+		var hi = new Vivus('main-time-line', {type: 'scenario-sync', duration: 20, start: 'manual', forceRender: false, dashGap: 20});
+>>>>>>> origin/master
 	</script></section>
 
 <section id="third page"/>
