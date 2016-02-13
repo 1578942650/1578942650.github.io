@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="zh" >
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+	<meta http-equiv="Page-Enter" content="revealTrans(Duration=1.0,Transition=0)">
+	<style type="text/css">
+		@font-face {
+			font-family: digit;
+			src: url('digital-7_mono.ttf') format("truetype");
+		}
+	</style>
+	<link href="css/default.css" type="text/css" rel="stylesheet">
+	<link href="css/normalize.css" type="text/css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/component.css" />
+
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<!--javscript for first page-->
+	<script type="text/javascript" src="js/garden_dev.js"></script>
+    <script type="text/javascript" src="js/functions_dev.js"></script>
+    <!--javascript for second page-->
+    <script src="js/vivus.js"></script>
+    
+</head>
+
+<body data-pinterest-extension-installed="cr1.39.1">
+
+<section id="first page">
+	<div id="firstpageDiv">
+		<div id="content">
+			<div id="loveHeart">
+				<canvas id="garden"></canvas>
+				<div id="words">
+					<div id="messages">
+						object1w, I have fallen in love with you for
+						<div id="elapseClock">
+							<span class="digit"></span> year 
+							<span class="digit"></span> month 
+							<span class="digit"></span> day 
+							<span class="digit"></span> hr 
+							<span class="digit"></span> min 
+							<span class="digit"></span> sec
+						</div>
+					</div>
+					<div id="loveu">
+						Love u forever and ever.<br>
+						<div class="signature">- SiyiGuo</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<a href="#secondpage" class="tosecondpage" id="tosecondpage" style="display:none;">More about us</a>
+		<!--加一个settimeout90-->
+		<script>
+			$(document).ready(function(){
+    		$("#tosecondpage").fadeIn(15000);
+  			});
+		</script>
+	</div>
+	<!--draw the heart-->
+	<script type="text/javascript">
+		var offsetX = $("#loveHeart").width() / 2;
+		var offsetY = $("#loveHeart").height() / 2 - 55;
+		var displayMode = 1;
+		var together = new Date("2015/6/15/");//系统将对其自动转化为它可以理解的方式来计算
+		//together.setFullYear(2015, 6, 15);
+		together.setHours(13);
+		together.setMinutes(14);
+		together.setSeconds(0);
+		together.setMilliseconds(0);//系统不纠结hour second这些小单位。
+		
+		$("#loveHeart").click(function(){
+			displayMode *= -1;
+			timeElapse(together, displayMode);
+		});
+		
+		if (!document.createElement('canvas').getContext) {
+			var msg = document.createElement("div");
+			msg.id = "errorMsg";
+			msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+			document.body.appendChild(msg);
+			$("#code").css("display", "none")
+		    document.execCommand("stop");
+		} else {
+			setTimeout(function () {
+				adjustWordsPosition();
+				startHeartAnimation();
+			}, 1000); //用来设置开始心多久出来
+
+			timeElapse(together, displayMode);
+			setInterval(function () {
+				timeElapse(together, displayMode);
+			}, 500);
+
+			adjustCodePosition();
+			$("#code").typewriter();
+		}
+
+	</script>
+	</section>
+
+<section id="second page"/>
+	<a name="secondpage"></a>
+	<div class="secondpageDiv">
+		<div class="basic time-line">
+			<!--主时间线+事件牌-->
+			<!--a second=48 frames-->  
+			<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1600 900" preserveAspectRatio="xMinYMid slice" id="main-time-line" onclick="hi.reset().play();">
+				<!--main time line-->
+				<path fill="none" data-duration="60" stroke="#FFFFFF" stroke-width="6" d="M 0,450 H 1600"/>
+				<!--event1 card-->
+				<path fill="none" data-duration="60" stroke="#FFFFFF" stroke-width="6" d="M 150,450 V375 h-100 v-150 h200 v150 h-100"/>
+				<!--event1 text-->
+				<text id="event1 text" x="50" y="300" fill="white" font-size="20" font-family="Verdana" opacity="0">
+					This is test paragraph1
+					<animate attributeName="opacity" from="0" to="1" begin="2.5" dur="1.25s" fill="freeze"/>
+				</text>
+				<!--event2 card-->
+				<path fill="none" data-duration="60" stroke="#FFFFFF" stroke-width="6" d="M 300,450 V525 h-100 v150 h200 v-150 h-100"/>	
+				<!--event2 text-->
+				<text id="event2 text" x="200" y="600" fill="white" font-size="20" font-family="Verdana" opacity="0">
+					This is test paragraph2
+					<animate attributeName="opacity" from="0" to="1" begin="3.75" dur="1.25s" fill="freeze"/>
+				</text>
+			</svg>		
+		</div>
+	</div>
+	<script>
+		var hi = new Vivus('main-time-line', {type: 'scenario-sync', duration: 20, start: 'autostart', forceRender: false, dashGap: 20});
+	</script></section>
+
+<section id="third page"/>
+	<div class="thirdpageDiv">
+		<div id="merrywrap" class="merrywrap">
+			<!--gift box-->
+			<div class="giftbox">
+					<div class="cover">
+						<div></div>
+					</div>
+					<div class="box"></div></div>
+			<!--以下这段代码产生的path就是蹦出来的东西， 可以用path生成花然后直接替换.花要和snow的一样-->
+			<div class="icons">
+					<div class="row">
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose1.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose3.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose5.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose7.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose9.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose8.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose6.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose2.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose4.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose3.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose1.png"/>
+							</svg>
+						</span>
+					</div>
+					<div class="row">
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose3.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose9.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose4.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose6.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose7.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose5.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose8.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose7.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose4.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose2.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose3.png"/>
+							</svg>
+						</span>
+					</div>
+					<div class="row">
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose2.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose5.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose7.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose6.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose1.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose5.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose2.png"/>
+							</svg>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose3.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose9.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose1.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose4.png"/>
+							</svg>
+						</span>
+					</div>
+					<div class="row">
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose2.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose4.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose5.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose6.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose7.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose8.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose4.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose2.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose1.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose3.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose4.png"/>
+							</svg>
+						</span>
+					</div>
+					<div class="row">
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose1.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose5.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose2.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose3.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose5.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose6.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose7.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose2.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose4.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose7.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose8.png"/>
+							</svg>
+						</span>
+					</div>
+					<div class="row">
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose9.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose3.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose5.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose6.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose7.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose2.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose9.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose1.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose3.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose8.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose4.png"/>
+							</svg>
+						</span>
+					</div>
+					<!--div class="row">
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose2.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose6.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose8.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose5.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose3.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose7.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose9.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose1.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose5.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose2.png"/>
+							</svg>
+						</span>
+						<span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 50 50">
+								<img src="images/rose4.png"/>
+							</svg>
+						</span>
+					</div-->
+			</div>
+			<!--set up the backgroun picture after rectangleEmitter has been activated--> 
+			<div id="pic3" width="100%">
+				<img id="thirdpagewallpaper" src="images/wallpaper2.jpg" style="display:none" />
+				<text id="thirdpageword" style="display:none;z-indent:2;top:30%; left:30%" />this is a test paragraph</text>
+				<text id="thirdpageword2" style="display:none;z-indent:2;top:60%; left:30%" />this is a test paragraph2</text>
+			</div>
+		</div>
+	</div>
+	<!--javascript for third page-->
+	<script src="js/rectangleEmitter.js"></script>
+	<script type="text/javascript" src="js/snowfall.js"></script> 
+	<script src="js/classie.js"></script>
+	<script src="js/main.js"></script>
+</section>
+
+</body>
+</html>
