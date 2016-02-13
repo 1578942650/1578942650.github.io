@@ -27,15 +27,7 @@ $(function () {
 	$("#merrywrap").css("height", $window.height());
 	$("#pic3").css("height", $window.height());
 	$("#icons").css("height", $window.height());
-<<<<<<< HEAD
 	$(".time-line").css("height", $window.height());
-=======
-	$("#secondpageDiv").css("width", $window.width());
-	$("#thirdpageDiv").css("width", $window.width());
-	$("#merrywrap").css("width", $window.width());
-	$("#pic3").css("width", $window.width());
-	$("#icons").css("width", $window.width());
->>>>>>> origin/master
 	
     // renderLoop
     setInterval(function () {

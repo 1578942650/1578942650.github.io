@@ -131,34 +131,3 @@ body{
 	padding:0;
 	position:relative;
 }
-
-@media screen and (min-width: 750px){
-	#firstpageDiv{
-		width:750px;
-		height:100%;
-		margin:0;
-		padding:0;
-	}
-	.secondpageDiv{
-	width:750px;
-	text-align: center;
-	overflow: hidden;
-	}	
-	.time-line{
-	background: #5aa8c5;
-	position:relative;
-	width:750px;
-	}
-	#thirdpageDiv{
-		width:750px;
-		margin:0;
-		padding:0;
-		position:relative;
-	}
-	.merrywrap {
-		position:relative;
-		width:750px;
-		height:900px;
-	}
-
-}
