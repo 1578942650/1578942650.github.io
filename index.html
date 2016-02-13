@@ -34,7 +34,7 @@
 				<canvas id="garden"></canvas>
 				<div id="words">
 					<div id="messages">
-						object1w, I have fallen in love with you for
+						兔子大人，我们在一起已经有
 						<div id="elapseClock">
 							<span class="digit"></span> year 
 							<span class="digit"></span> month 
@@ -45,7 +45,7 @@
 						</div>
 					</div>
 					<div id="loveu">
-						Love u forever and ever.<br>
+						Love you forever and ever.<br>
 						<div class="signature">- SiyiGuo</div>
 					</div>
 				</div>
@@ -54,9 +54,12 @@
 		<a href="#secondpage" class="tosecondpage" id="tosecondpage" style="display:none;">More about us</a>
 		<!--加一个settimeout90-->
 		<script>
+		function funcB() {
 			$(document).ready(function(){
-    		$("#tosecondpage").fadeIn(15000);
-  			});
+    		$("#tosecondpage").fadeIn(1000);
+  				});
+  		}
+  		setTimeout(function() { funcB(); },17000);
 		</script>
 	</div>
 	<!--draw the heart-->
@@ -107,31 +110,189 @@
 		<div class="basic time-line">
 			<!--主时间线+事件牌-->
 			<!--a second=48 frames-->  
-			<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1600 900" preserveAspectRatio="xMinYMid slice" id="main-time-line" onclick="hi.reset().play();">
+			<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1600 900" preserveAspectRatio="xMinYMid slice" id="main-time-line">
+				<text x="680" y="100" font-size="30" font-family="Verdana" fill="white"> Our Time Line</text>
+				<text x="600" y="120" font-size="10" font-family="Verdana" fill="white">（为了更好的效果，请只单击鼠标一下.PS：一下！不是双击！不是两下！就一下！)</text>
 				<!--main time line-->
-				<path fill="none" data-duration="60" stroke="#FFFFFF" stroke-width="6" d="M 0,450 H 1600"/>
+				<path id="timeline" fill="none" data-duration="60" stroke="#FFFFFF" stroke-width="6" d="M 0,450 H 1600"/>
 				<!--event1 card-->
-				<path fill="none" data-duration="60" stroke="#FFFFFF" stroke-width="6" d="M 150,450 V375 h-100 v-150 h200 v150 h-100"/>
+				<path fill="none" data-duration="60" stroke="#FFFFFF" stroke-width="6" d="M 100,450 V375 h-75 v-75 h150 v75 h-75"/>
 				<!--event1 text-->
-				<text id="event1 text" x="50" y="300" fill="white" font-size="20" font-family="Verdana" opacity="0">
-					This is test paragraph1
-					<animate attributeName="opacity" from="0" to="1" begin="2.5" dur="1.25s" fill="freeze"/>
+				<text id="0" x="50" y="330" fill="white" font-size="20" font-family="Verdana" opacity="0">
+					June 15th
+					<animate attributeName="opacity" from="0" to="1" begin="indefinite" dur="1s" fill="freeze"/>
+				</text>
+				<text id="1" x="40" y="360" fill="white" font-size="20" font-family="Verdana" opacity="0" width="20px" height="40px">
+					我们在一起了
+					<animate attributeName="opacity" from="0" to="1" begin="indefinite" dur="1s" fill="freeze"/>
 				</text>
 				<!--event2 card-->
-				<path fill="none" data-duration="60" stroke="#FFFFFF" stroke-width="6" d="M 300,450 V525 h-100 v150 h200 v-150 h-100"/>	
+				<path fill="none" data-duration="60" stroke="#FFFFFF" stroke-width="6" d="M 200,450 V525 h-75 v75 h150v-75 h-75"/>	
 				<!--event2 text-->
-				<text id="event2 text" x="200" y="600" fill="white" font-size="20" font-family="Verdana" opacity="0">
-					This is test paragraph2
-					<animate attributeName="opacity" from="0" to="1" begin="3.75" dur="1.25s" fill="freeze"/>
+				<text id="2" x="160" y="555" fill="white" font-size="20" font-family="Verdana" opacity="0">
+					July 1st
+					<animate attributeName="opacity" from="0" to="1" begin="indefinite" dur="1s" fill="freeze"/>
+				</text>
+				<text id="3"x="140" y="582" fill="white" font-size="20" font-family="Verdana" opacity="0">
+					一起牵手逛街
+					<animate attributeName="opacity" from="0" to="1" begin="indefinite" dur="1s" fill="freeze"/>
+				</text>
+				<!--event3 card-->
+				<path fill="none" data-duration="60" stroke="#FFFFFF" stroke-width="6" d="M 280,450 V375 h-75 v-75 h150 v75 h-75"/>	
+				<!--event3 text-->
+				<text id="4" x="240" y="330" fill="white" font-size="20" font-family="Verdana" opacity="0">
+					July 5th
+					<animate attributeName="opacity" from="0" to="1" begin="indefinite" dur="1s" fill="freeze"/>
+				</text>
+				<text id="5" x="230" y="360" fill="white" font-size="20" font-family="Verdana" opacity="0">
+					第一次接吻
+					<animate attributeName="opacity" from="0" to="1" begin="indefinite" dur="1s" fill="freeze"/>
+				</text>
+				<!--event4 card-->
+				<path fill="none" data-duration="60" stroke="#FFFFFF" stroke-width="6" d="M 400,450 V525 h-75 v75 h150v-75 h-75"/>	
+				<!--event4 text-->
+				<text id="6" x="360" y="555" fill="white" font-size="20" font-family="Verdana" opacity="0">
+					July 30rd
+					<animate attributeName="opacity" from="0" to="1" begin="indefinite" dur="1s" fill="freeze"/>
+				</text>
+				<text id="7" x="340" y="582" fill="white" font-size="20" font-family="Verdana" opacity="0">
+					一起面对质疑
+					<animate attributeName="opacity" from="0" to="1" begin="indefinite" dur="1s" fill="freeze"/>
+				</text>
+				<!--event5 card-->
+				<path fill="none" data-duration="60" stroke="#FFFFFF" stroke-width="6" d="M 585,450 V375 h-100 v-75 h200 v75 h-100"/>	
+				<!--event5 text-->
+				<text id="8" x="513" y="330" fill="white" font-size="20" font-family="Verdana" opacity="0">
+					October 18th
+					<animate attributeName="opacity" from="0" to="1" begin="indefinite" dur="1s" fill="freeze"/>
+				</text>
+				<text id="9" x="505" y="360" fill="white" font-size="20" font-family="Verdana" opacity="0">
+					第一次带你见妈妈
+					<animate attributeName="opacity" from="0" to="1" begin="indefinite" dur="1s" fill="freeze"/>
+				</text>
+				<!--event6 card-->
+				<path fill="none" data-duration="60" stroke="#FFFFFF" stroke-width="6" d="M 660,450 V525 h-100 v75 h200 v-75 h-100"/>	
+				<!--event6 text-->
+				<text id="10" x="585" y="555" fill="white" font-size="20" font-family="Verdana" opacity="0">
+					October 27th
+					<animate attributeName="opacity" from="0" to="1" begin="indefinite" dur="1s" fill="freeze"/>
+				</text>
+				<text id="11" x="595" y="582" fill="white" font-size="20" font-family="Verdana" opacity="0">
+					一起参加高考
+					<animate attributeName="opacity" from="0" to="1" begin="indefinite" dur="1s" fill="freeze"/>
+				</text>
+				<!--event7 card-->
+				<path fill="none" data-duration="60" stroke="#FFFFFF" stroke-width="6" d="M 940,450 V375 h-100 v-75 h200 v75 h-100"/>	
+				<!--event7 text-->
+				<text id="12" x="863" y="330" fill="white" font-size="20" font-family="Verdana" opacity="0">
+					December 25th
+					<animate attributeName="opacity" from="0" to="1" begin="indefinite" dur="1s" fill="freeze"/>
+				</text>
+				<text id="13" x="863" y="360" fill="white" font-size="20" font-family="Verdana" opacity="0">
+					第一次和你过圣诞
+					<animate attributeName="opacity" from="0" to="1" begin="indefinite" dur="1s" fill="freeze"/>
+				</text>
+				<!--event8 card-->
+				<path fill="none" data-duration="60" stroke="#FFFFFF" stroke-width="6" d="M 950,450 V525 h-100 v75 h200 v-75 h-100"/>	
+				<!--event8 text-->
+				<text id="14" x="872" y="555" fill="white" font-size="20" font-family="Verdana" opacity="0">
+					December 27th
+					<animate attributeName="opacity" from="0" to="1" begin="indefinite" dur="1s" fill="freeze"/>
+				</text>
+				<text id="15" x="887"
+				 y="582" fill="white" font-size="20" font-family="Verdana" opacity="0">
+					一起见你家人
+					<animate attributeName="opacity" from="0" to="1" begin="indefinite" dur="1s" fill="freeze"/>
+				</text>
+				<!--event9 card-->
+				<path fill="none" data-duration="60" stroke="#FFFFFF" stroke-width="6" d="M 1240,450 V525 h-100 v75 h200 v-75 h-100"/>		
+				<!--event9 text-->
+				<text id="16" x="1170" y="555" fill="white" font-size="20" font-family="Verdana" opacity="0">
+					January 18th
+					<animate attributeName="opacity" from="0" to="1" begin="indefinite" dur="1s" fill="freeze"/>
+				</text>
+				<text id="17" x="1176" y="582" fill="white" font-size="20" font-family="Verdana" opacity="0">
+					一起考上墨大！
+					<animate attributeName="opacity" from="0" to="1" begin="indefinite" dur="1s" fill="freeze"/>
+				</text>
+				<!--event10 card-->
+				<path fill="none" data-duration="60" stroke="#FFFFFF" stroke-width="6" d="M 1370,450 V300 h-200 v-150 h400 v150 h-200"/>	
+				<!--event10 text-->
+				<text id="18" x="1200" y="235" fill="white" font-size="40" font-family="Verdana" opacity="0">
+					To Be Continue...
+					<animate attributeName="opacity" from="0" to="1" begin="indefinite" dur="1s" fill="freeze"/>
+				</text>
+				<!-- end of event list-->
+				<text id="19" x="605" y="190" fill="white" font-size="40" font-family="Verdana" opacity="0">
+					对小笨蛋，始终如一
+					<animate attributeName="opacity" from="0" to="1" begin="indefinite" dur="1s" fill="freeze"/>
 				</text>
 			</svg>		
+			<a href="#thirdpage" class="tothirdpage" id="tothirdpage" style="display:none">click this for one more gift </a>
 		</div>
+		<!-- set up on click event-->
+		<script>
+  			var animate = document.getElementsByTagName("animate")[0];
+  			var animate1 = document.getElementsByTagName("animate")[1];
+  			var animate2 = document.getElementsByTagName("animate")[2];
+  			var animate3 = document.getElementsByTagName("animate")[3];
+  			var animate4 = document.getElementsByTagName("animate")[4];
+  			var animate5 = document.getElementsByTagName("animate")[5];
+  			var animate6 = document.getElementsByTagName("animate")[6];
+  			var animate7 = document.getElementsByTagName("animate")[7];
+  			var animate8 = document.getElementsByTagName("animate")[8];
+  			var animate9 = document.getElementsByTagName("animate")[9];
+  			var animate10 = document.getElementsByTagName("animate")[10];
+  			var animate11 = document.getElementsByTagName("animate")[11];
+  			var animate12 = document.getElementsByTagName("animate")[12];
+  			var animate13 = document.getElementsByTagName("animate")[13];
+  			var animate14 = document.getElementsByTagName("animate")[14];
+  			var animate15 = document.getElementsByTagName("animate")[15];
+  			var animate16 = document.getElementsByTagName("animate")[16];
+  			var animate17 = document.getElementsByTagName("animate")[17];
+  			var animate18 = document.getElementsByTagName("animate")[18];
+  			var animate19 = document.getElementsByTagName("animate")[19];
+
+  			function funcA() {
+				$(document).ready(function(){
+    			$("#tothirdpage").fadeIn(1000);
+  				});
+  			}
+
+			if (animate) {
+    			document.getElementById("main-time-line").onclick = function() {
+    			setTimeout("animate.beginElement()",2750);
+       			setTimeout("animate1.beginElement()",2800);
+       			setTimeout("animate2.beginElement()",4000);
+       			setTimeout("animate3.beginElement()",4050);
+       			setTimeout("animate4.beginElement()",5250);
+       			setTimeout("animate5.beginElement()",5300);
+       			setTimeout("animate6.beginElement()",6500);
+       			setTimeout("animate7.beginElement()",6550);
+       			setTimeout("animate8.beginElement()",7750);
+       			setTimeout("animate9.beginElement()",7800);
+       			setTimeout("animate10.beginElement()",8900);
+       			setTimeout("animate11.beginElement()",8950);
+       			setTimeout("animate12.beginElement()",10450);
+       			setTimeout("animate13.beginElement()",10400);
+       			setTimeout("animate14.beginElement()",11600);
+       			setTimeout("animate15.beginElement()",11650);
+       			setTimeout("animate16.beginElement()",12950);
+       			setTimeout("animate17.beginElement()",13000);
+       			setTimeout("animate18.beginElement()",14250);
+       			setTimeout("animate19.beginElement()",17250);
+       			hi.reset().play();
+       			setTimeout(function() { funcA(); },20250);
+    			};
+			}
+  		</script>
 	</div>
 	<script>
-		var hi = new Vivus('main-time-line', {type: 'scenario-sync', duration: 20, start: 'autostart', forceRender: false, dashGap: 20});
+		var hi = new Vivus('main-time-line', {type: 'scenario-sync', duration: 480, start: 'manual', forceRender: false, dashGap: 20});
 	</script></section>
 
 <section id="third page"/>
+	<a name="thirdpage"></a>
 	<div class="thirdpageDiv">
 		<div id="merrywrap" class="merrywrap">
 			<!--gift box-->
@@ -544,8 +705,8 @@
 			<!--set up the backgroun picture after rectangleEmitter has been activated--> 
 			<div id="pic3" width="100%">
 				<img id="thirdpagewallpaper" src="images/wallpaper2.jpg" style="display:none" />
-				<text id="thirdpageword" style="display:none;z-indent:2;top:30%; left:30%" />this is a test paragraph</text>
-				<text id="thirdpageword2" style="display:none;z-indent:2;top:60%; left:30%" />this is a test paragraph2</text>
+				<text id="thirdpageword" style="display:none;z-indent:2;top:35%; left:30%" />丁容小笨蛋</text>
+				<text id="thirdpageword2" style="display:none;z-indent:2;top:50%; left:30%" />～情人节快乐～</text>
 			</div>
 		</div>
 	</div>

@@ -20,12 +20,12 @@ body{
 .tosecondpage{
 	font-size: 24px;
 	color:#000000;
-	font-family:"sans-serif";
+	font-family:"Verdana";
 	text-decoration: none;
 	width: 30%;
-	height: 30px;
+	height: 10px;
 	position: absolute;
-	bottom: 5%;
+	bottom: 10%;
 	right: 35%;
 	cursor: pointer;
 	text-align: center;
@@ -47,13 +47,13 @@ body{
 	margin-bottom:10px
 }
 #words{
-	font-family:"sans-serif";
+	font-family:"Verdana";
 	width:505px;
 	font-size:24px;
 	color:#666
 }
 #messages{
-	display:none
+	display:none;
 }
 #elapseClock .digit{
 	font-family:"digit";
@@ -62,8 +62,8 @@ body{
 #loveu{
 	padding:5px;
 	font-size:22px;
-	margin-top:80px;
-	margin-right:120px;
+	margin-top:60px;
+	margin-right:100px;
 	text-align:right;
 	display:none;
 }
@@ -90,6 +90,21 @@ body{
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
+
+.tothirdpage{
+	font-size: 24px;
+	color:#FFFFFF;
+	font-family:"Verdana";
+	text-decoration: none;
+	width: 30%;
+	height: 10%;
+	position: absolute;	
+	top: 85%;
+	right: 35%;
+	cursor: pointer;
+	text-align: center;
+}
+
 .secondpageDiv{
 	width:100%;
 	text-align: center;
@@ -99,7 +114,6 @@ body{
 	background: #5aa8c5;
 	position:relative;
 	width:100%;
-	height:100%;
 	}
 
 /*import from the third page*/
@@ -118,3 +132,33 @@ body{
 	position:relative;
 }
 
+@media screen and (min-width: 750px){
+	#firstpageDiv{
+		width:750px;
+		height:100%;
+		margin:0;
+		padding:0;
+	}
+	.secondpageDiv{
+	width:750px;
+	text-align: center;
+	overflow: hidden;
+	}	
+	.time-line{
+	background: #5aa8c5;
+	position:relative;
+	width:750px;
+	}
+	#thirdpageDiv{
+		width:750px;
+		margin:0;
+		padding:0;
+		position:relative;
+	}
+	.merrywrap {
+		position:relative;
+		width:750px;
+		height:900px;
+	}
+
+}

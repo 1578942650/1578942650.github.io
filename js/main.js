@@ -69,7 +69,7 @@
         	$(document).snowfall({
             	image: "images/huaban.png",
             	flakeCount:99,
-            	minSize: 50,
+            	minSize: 15,
             	maxSize: 30,
             	maxSpeed: 1,
         	});

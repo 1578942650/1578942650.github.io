@@ -27,6 +27,7 @@ $(function () {
 	$("#merrywrap").css("height", $window.height());
 	$("#pic3").css("height", $window.height());
 	$("#icons").css("height", $window.height());
+	$(".time-line").css("height", $window.height());
 	
     // renderLoop
     setInterval(function () {
