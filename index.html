@@ -107,31 +107,48 @@
 		<div class="basic time-line">
 			<!--主时间线+事件牌-->
 			<!--a second=48 frames-->  
-			<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1600 900" preserveAspectRatio="xMinYMid slice" id="main-time-line" onclick="hi.reset().play();">
+			<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1600 900" preserveAspectRatio="xMinYMid slice" id="main-time-line">
 				<!--main time line-->
-				<path fill="none" data-duration="60" stroke="#FFFFFF" stroke-width="6" d="M 0,450 H 1600"/>
+				<path id="timeline" fill="none" data-duration="60" stroke="#FFFFFF" stroke-width="6" d="M 0,450 H 1600"/>
 				<!--event1 card-->
 				<path fill="none" data-duration="60" stroke="#FFFFFF" stroke-width="6" d="M 150,450 V375 h-100 v-150 h200 v150 h-100"/>
 				<!--event1 text-->
-				<text id="event1 text" x="50" y="300" fill="white" font-size="20" font-family="Verdana" opacity="0">
+				<text id="event1-text" x="50" y="300" fill="white" font-size="20" font-family="Verdana" opacity="0">
 					This is test paragraph1
-					<animate attributeName="opacity" from="0" to="1" begin="2.5" dur="1.25s" fill="freeze"/>
+					<animate id="text1"attributeName="opacity" from="0" to="1" begin="indefinite" dur="1.75s" fill="freeze"/>
 				</text>
 				<!--event2 card-->
 				<path fill="none" data-duration="60" stroke="#FFFFFF" stroke-width="6" d="M 300,450 V525 h-100 v150 h200 v-150 h-100"/>	
 				<!--event2 text-->
-				<text id="event2 text" x="200" y="600" fill="white" font-size="20" font-family="Verdana" opacity="0">
+				<text id="event2-text" x="200" y="600" fill="white" font-size="20" font-family="Verdana" opacity="0">
 					This is test paragraph2
-					<animate attributeName="opacity" from="0" to="1" begin="3.75" dur="1.25s" fill="freeze"/>
+					<animate attributeName="opacity" from="0" to="1" begin="indefinite" dur="3s" fill="freeze"/>
 				</text>
 			</svg>		
+			<a href="#thirdpage" class="tothirdpage" id="tothirdpage" style="display:none">More about us</a>
 		</div>
+		<!-- set up on click event-->
+		<script>
+  			var animate = document.getElementsByTagName("animate")[0];
+  			var animate1 = document.getElementsByTagName("animate")[1];
+			if (animate) {
+    			document.getElementById("main-time-line").onclick = function() {
+       			animate.beginElement();
+       			animate1.beginElement();
+       			hi.reset().play();
+       			$(document).ready(function(){
+    			$("#tothirdpage ").fadeIn(15000);
+  					});
+    			};
+			}
+  		</script>
 	</div>
 	<script>
-		var hi = new Vivus('main-time-line', {type: 'scenario-sync', duration: 20, start: 'autostart', forceRender: false, dashGap: 20});
+		var hi = new Vivus('main-time-line', {type: 'scenario-sync', duration: 20, start: 'manual', forceRender: false, dashGap: 20});
 	</script></section>
 
 <section id="third page"/>
+	<a name="thirdpage"></a>
 	<div class="thirdpageDiv">
 		<div id="merrywrap" class="merrywrap">
 			<!--gift box-->
