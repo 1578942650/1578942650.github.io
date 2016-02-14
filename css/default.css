@@ -131,3 +131,18 @@ body{
 	padding:0;
 	position:relative;
 }
+
+@media screen and (max-width:750px); {
+	#thirdpageDiv{
+		width:750px;
+		margin:0;
+		padding:0;
+		position:relative;
+	}
+	.secondpageDiv{
+		width:750px;
+		text-align: center;
+		overflow: hidden;
+	}
+
+}
